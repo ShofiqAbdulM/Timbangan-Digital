@@ -1,83 +1,45 @@
-var express = require('express');
-var app = express();
-const mysql = require('mysql');
+// Definisi Library yang digunakan
+const express = require('express');
 const session = require('express-session');
-const cookieParser = require("cookie-parser");
+const bodyParser = require('body-parser');
+const path = require('path');
+const flash = require('req-flash');
+const app = express();
 
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'shofiq2001',
-    database: 'Timbangan'
-});
+// Definisi lokasi file router
+const loginRoutes = require('./routes/route-login');
+const RegisRoutes = require('./routes/route-register');
+const appRoutes = require('./routes/route-app');
 
-app.use(cookieParser());
+// Configurasi dan gunakan library
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
+// Configurasi library session
 app.use(session({
-    secret: 'secret',
     resave: false,
-    cookie: { maxAge: 60000 },
-    saveUninitialized: true
-}));
+    saveUninitialized: false,
+    secret: 'R A H A S I A',
+    name: 'secretName',
+    cookie: {
+        sameSite: true,
+        maxAge: 60000
+    },
+}))
+app.use(flash());
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-app.set('view engine', 'ejs');
+// Setting folder views
 app.use(express.static(__dirname + '/static'));
 
-// use res.render to load up an ejs view file
+app.set('views', path.join(__dirname, 'views/pages'));
+app.set('view engine', 'ejs');
 
-// index page
-app.get('/', function (req, res) {
-    res.render('pages/login');
+// Gunakan routes yang telah didefinisikan
+app.use('/login', loginRoutes);
+app.use('/register', RegisRoutes);
+app.use('/', appRoutes);
+
+// Gunakan port server
+app.listen(5050, () => {
+    console.log('Server Berjalan di Port : ' + 5050);
 });
-
-app.post('/login', function (request, response) {
-    // Capture the input fields
-    let username = request.body.username;
-    let password = request.body.password;
-
-    if (username && password) {
-        connection.query('SELECT * FROM user WHERE username = ? AND password = ?', [username, password], function (error, results, fields) {
-            // If there is an issue with the query, output the error
-            if (error) throw error;
-            // If the account exists
-            if (results.length > 0) {
-                // Authenticate the user
-                request.session.loggedin = true;
-                request.session.username = username;
-                // Redirect to home page
-                response.redirect('/home');
-            } else {
-                response.redirect('/');
-            }
-            response.end();
-        });
-    } else {
-        response.send('Please enter Username and Password!');
-        response.end();
-    }
-});
-app.get('/home', function (request, response) {
-    if (request.session.loggedin) {
-
-        response.render('pages/atasan/home');
-
-    } else {
-
-        response.redirect('/');
-    }
-    response.end();
-});
-
-app.get('/logout', function (req, res) {
-    // clear the remember me cookie when logging out
-    req.session = null;
-    res.redirect('/');
-});
-
-app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
-
-app.listen(8080);
-console.log('Server is listening on port 8080');

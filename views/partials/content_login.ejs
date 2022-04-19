@@ -11,7 +11,8 @@
                             <h4 class="mt-1 mb-5 pb-1">Welcome To Digital Weight</h4>
                         </div>
 
-                        <form action="/login" method="post">
+                        <!-- <form action="/login" method="post" > -->
+                        <form action="<%= url %>login/auth" method="POST">
                             <p>Please login to your account</p>
 
                             <div class="form-outline mb-4">
@@ -29,8 +30,18 @@
                                     value="LOG IN">
                                 <a class="text-muted" href="#!">Forgot password?</a>
                             </div>
-
-
+                            <%if (pesanFlash) { %>
+                                <div class="alert alert-<%= colorFlash %> alert-dismissible fade show mt-3"
+                                    role="alert">
+                                    <strong>
+                                        <%= statusFlash %>
+                                    </strong>
+                                    <%= pesanFlash %>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                </div>
+                                <% } %>
                         </form>
 
                     </div>
