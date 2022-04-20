@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+        <title>Dashboard</title>
+</head>
+
+<body>
+
+    <div class="wrapper fixed-top d-flex align-items-center">
+        <!--Top menu -->
+        <%- include('../partials/pegawai/header'); %>
+
+            <!-- <header id="header" class="header fixed-top d-flex align-items-center">
+        </header> -->
+            <!-- sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar.ejs -->
+                <%- include('../partials/pegawai/sidebar'); %>
+            </div>
+    </div>
+    <main id="main" class="main">
+        <%- include('../partials/pegawai/home'); %>
+    </main><!-- End #main -->
+    <!-- <%- include('../partials/script'); %> -->
+
+</body>
+
+</html>

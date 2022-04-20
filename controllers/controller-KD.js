@@ -1,6 +1,6 @@
 module.exports = {
-    home(req, res) {
-        res.render("home", {
+    kd(req, res) {
+        res.render("keloladriver", {
             url: 'http://localhost:5050/',
             user: req.session.username,
         });

@@ -38,8 +38,11 @@ body.active .wrapper {
 }
 
 .btn {
-    margin-right: 344px;
     position: static;
+}
+
+.d-grid {
+    margin-right: 344px;
 }
 
 .ps-2 span {

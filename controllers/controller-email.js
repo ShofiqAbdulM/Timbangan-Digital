@@ -1,6 +1,6 @@
 module.exports = {
-    home(req, res) {
-        res.render("home", {
+    email(req, res) {
+        res.render("email", {
             url: 'http://localhost:5050/',
             user: req.session.username,
         });

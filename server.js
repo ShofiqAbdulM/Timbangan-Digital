@@ -11,6 +11,9 @@ const loginRoutes = require('./routes/route-login');
 const RegisRoutes = require('./routes/route-register');
 const appRoutes = require('./routes/route-app');
 
+const cors = require('cors')
+
+app.use(cors())
 
 // Configurasi dan gunakan library
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -32,7 +35,9 @@ app.use(flash());
 // Setting folder views
 app.use(express.static(__dirname + '/static'));
 
-app.set('views', path.join(__dirname, 'views/pages'));
+app.set('views', path.join(__dirname, 'views/pages/'));
+// app.set('views', path.join(__dirname, 'views/pages/atasan'));
+// app.set('views', path.join(__dirname, 'views/pages/pegawai'));
 app.set('view engine', 'ejs');
 
 // Gunakan routes yang telah didefinisikan
@@ -41,6 +46,6 @@ app.use('/register', RegisRoutes);
 app.use('/', appRoutes);
 
 // Gunakan port server
-app.listen(8080, () => {
-    console.log('Server Berjalan di Port : ' + 8080);
+app.listen(5050, () => {
+    console.log('Server Berjalan di Port : ' + 5050);
 });

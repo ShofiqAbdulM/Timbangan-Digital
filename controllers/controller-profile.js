@@ -20,7 +20,7 @@ module.exports = {
                 , function (error, results) {
                     if (error) throw error;
                     res.render("profile", {
-                        url: 'http://localhost:8080/',
+                        url: 'http://localhost:5050/',
                         // username: req.session.username,
                         nama: req.body.username,
                         password: req.body.password
