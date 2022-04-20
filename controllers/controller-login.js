@@ -8,10 +8,10 @@ pool.on('error', (err) => {
 });
 
 module.exports = {
-    // Render tampilan untuk login yang ada didalam folder 'src/views/login.ejs'
+    // Render tampilan untuk login yang ada didalam folder '/views/login.ejs'
     login(req, res) {
         res.render("login", {
-            url: 'http://localhost:5050/',
+            url: 'http://localhost:8080/',
             // Kirim juga library flash yang telah di set
             colorFlash: req.flash('color'),
             statusFlash: req.flash('status'),

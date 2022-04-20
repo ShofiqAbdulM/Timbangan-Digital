@@ -11,6 +11,7 @@ const loginRoutes = require('./routes/route-login');
 const RegisRoutes = require('./routes/route-register');
 const appRoutes = require('./routes/route-app');
 
+
 // Configurasi dan gunakan library
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -40,6 +41,6 @@ app.use('/register', RegisRoutes);
 app.use('/', appRoutes);
 
 // Gunakan port server
-app.listen(5050, () => {
-    console.log('Server Berjalan di Port : ' + 5050);
+app.listen(8080, () => {
+    console.log('Server Berjalan di Port : ' + 8080);
 });

@@ -33,9 +33,19 @@ body.active .wrapper {
     background: linear-gradient(to right, #4154f1, #626fe1, #fff);
 }
 
-.btn {
+.login {
     width: 100%;
 }
+
+.btn {
+    margin-right: 344px;
+    position: static;
+}
+
+.ps-2 span {
+    font-size: 10px;
+}
+
 
 .gradient-custom-2 {
     /* fallback for old browsers */

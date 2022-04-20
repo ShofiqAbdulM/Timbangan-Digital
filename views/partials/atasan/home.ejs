@@ -47,7 +47,7 @@
                                         class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="fas fa-car"></i>
                                     </div>
-                                    <div class="ps-3">
+                                    <div class="ps-2">
                                         <span>Jumlah Truk</span>
                                         <h6>
                                             <span class="text-success small pt-1 fw-bold">200</span> <span
@@ -60,13 +60,13 @@
                                 <div class="d-flex align-items-center mt-3">
                                     <div
                                         class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                        <i class="fas fa-car"></i>
+                                        <i class="fa-solid fa-weight-hanging"></i>
                                     </div>
-                                    <div class="ps-3">
-                                        <span>Jumlah Truk</span>
+                                    <div class="ps-2">
+                                        <span>Total Berat</span>
                                         <h6>
-                                            <span class="text-success small pt-1 fw-bold">200</span> <span
-                                                class="text-muted small pt-2 ps-1">Truk</span>
+                                            <span class="text-success small pt-1 fw-bold">500</span> <span
+                                                class="text-muted small pt-2 ps-1">Ton</span>
                                         </h6>
                                     </div>
                                 </div>
@@ -75,13 +75,13 @@
                                 <div class="d-flex align-items-center mt-3">
                                     <div
                                         class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                        <i class="fas fa-car"></i>
+                                        <i class="fas fa-weight"></i>
                                     </div>
-                                    <div class="ps-3">
-                                        <span>Jumlah Truk</span>
+                                    <div class="ps-2">
+                                        <span>Rata-rata Berat</span>
                                         <h6>
-                                            <span class="text-success small pt-1 fw-bold">200</span> <span
-                                                class="text-muted small pt-2 ps-1">Truk</span>
+                                            <span class="text-success pt-1 fw-boldx">10</span>
+                                            <span class="text-muted pt-2 ps-1">Ton</span>
                                         </h6>
                                     </div>
                                 </div>
@@ -89,66 +89,35 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Reports <span>/Today</span></h5>
-
                             <!-- Line Chart -->
-                            <!-- <div id="reportsChart"></div>
-
+                            <canvas id="lineChart" style="max-height: 100%;"></canvas>
                             <script>
                                 document.addEventListener("DOMContentLoaded", () => {
-                                    new ApexCharts(document.querySelector("#reportsChart"), {
-                                        series: [{
-                                            name: 'Truk',
-                                            data: [31, 40, 28, 51, 42, 82, 56],
-                                        }, {
-                                            name: 'Revenue',
-                                            data: [11, 32, 45, 32, 34, 52, 41]
-                                        }, {
-                                            name: 'Customers',
-                                            data: [15, 11, 32, 18, 9, 24, 11]
-                                        }],
-                                        chart: {
-                                            height: 350,
-                                            type: 'area',
-                                            toolbar: {
-                                                show: false
-                                            },
+                                    new Chart(document.querySelector('#lineChart'), {
+                                        type: 'line',
+                                        data: {
+                                            labels: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
+                                            datasets: [{
+                                                label: 'Line Chart',
+                                                data: [65, 59, 80, 81, 56, 55, 40],
+                                                fill: false,
+                                                borderColor: 'rgb(75, 192, 192)',
+                                                tension: 0.1
+                                            }]
                                         },
-                                        markers: {
-                                            size: 4
-                                        },
-                                        colors: ['#4154f1', '#2eca6a', '#ff771d'],
-                                        fill: {
-                                            type: "gradient",
-                                            gradient: {
-                                                shadeIntensity: 1,
-                                                opacityFrom: 0.3,
-                                                opacityTo: 0.4,
-                                                stops: [0, 90, 100]
+                                        options: {
+                                            scales: {
+                                                y: {
+                                                    beginAtZero: true
+                                                }
                                             }
-                                        },
-                                        dataLabels: {
-                                            enabled: false
-                                        },
-                                        stroke: {
-                                            curve: 'smooth',
-                                            width: 2
-                                        },
-                                        xaxis: {
-                                            type: 'datetime',
-                                            categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-                                        },
-                                        tooltip: {
-                                            x: {
-                                                format: 'dd/MM/yy HH:mm'
-                                            },
                                         }
-                                    }).render();
+                                    });
                                 });
-                            </script> -->
-                            <!-- End Line Chart -->
+                            </script>
+                            <!-- End Line CHart -->
 
                         </div>
-
                     </div>
                 </div><!-- End Reports -->
 
@@ -179,5 +148,9 @@
             </div><!-- End Recent Activity -->
         </div><!-- End Right side columns -->
 
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-danger me-md-2" type="button">Download excel</button>
+        <button class="btn btn-success" type="button">View</button>
     </div>
 </section>
