@@ -1,51 +1,34 @@
-<div class="row d-flex justify-content-center align-items-center h-100">
-    <div class="col-xl-10">
-        <div class="card rounded-3 text-black">
-            <div class="row g-0">
-                <div class="col-lg-6">
-                    <div class="card-body p-md-5 mx-md-4">
-
-                        <div class="text-center">
-                            <img src="public/timbang.png" class="mt-1 mb-5 pb-1" style="width: 320px;" alt="logo">
-                            <!-- <h1>Logo</h1> -->
-                            <h4 class="mt-1 mb-5 pb-1">Welcome To Digital Weight</h4>
-                        </div>
-
-                        <!-- <form action="/login" method="post" > -->
-                        <form action="auth" method="POST">
-                            <p>Please login to your account</p>
-
-                            <div class="form-outline mb-4">
-                                <input type="text" name="email" placeholder="Username" id="username"
-                                    class="form-control" required>
-                            </div>
-
-                            <div class="form-outline mb-4">
-                                <input type="password" name="password" placeholder="Password" id="password"
-                                    class="form-control" required>
-                            </div>
-
-                            <div class="text-center pt-1 mb-5 pb-1">
-                                <input class="login btn btn-primary btn-block fa-lg gradient-custom-1 mb-3"
-                                    type="submit" value="LOG IN">
-                                <a class="text-muted" href="#!">Forgot password?</a>
-                            </div>
-                        </form>
-
-                    </div>
-                </div>
-                <div class="col-lg-6 d-flex align-items-center gradient-custom-2 gradient-custom-2-opacity-50">
-                    <div class="px-3 py-4 p-md-5g mx-md-4">
-
-                    </div>
-                </div>
+<div class="login-content">
+    <form action="auth" method="POST">
+        <img src="/public/timbang.png">
+        <p class="title">Welcome</p>
+        <div class="input-div one">
+            <div class="i">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="div">
+                <h5>Username</h5>
+                <input type="text" class="input" id="username" required>
             </div>
         </div>
-    </div>
+        <div class="input-div pass">
+            <div class="i">
+                <i class="fas fa-lock"></i>
+            </div>
+            <div class="div">
+                <h5>Password</h5>
+                <input type="password" class="input" name="password" id="password" required>
+            </div>
+        </div>
+        <a href="#">Forgot Password?</a>
+        <input type="submit" class="btn" value="Login">
+    </form>
 </div>
-
-<% if(error.length > 0) {%>
+<div class="img">
+    <img src="/public/timbangan.png">
+</div>
+<% if(error.length> 0) {%>
     <script>
         alert('<%= error %>')
     </script>
-<% } %>
+    <% } %>

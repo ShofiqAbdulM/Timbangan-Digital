@@ -7,7 +7,7 @@ const flash = require('connect-flash')
 const fileUpload = require('express-fileupload');
 const path = require('path')
 
-require('dotenv').config({path: __dirname + '/.env'})
+require('dotenv').config({ path: __dirname + '/.env' })
 
 app.use(cookieParser());
 
@@ -36,9 +36,9 @@ app.use(express.static(__dirname + '/static'));
 // });
 
 //import route
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     var cookie = req.cookies
-    var role =cookie.role
+    var role = cookie.role
     var nama = cookie.nama
     var gambar = cookie.gambar
     var url = req.originalUrl
@@ -48,13 +48,16 @@ app.use(function(req, res, next) {
     res.locals.gambar = gambar
     next();
 });
-app.use(require('./routes'), )
+app.use(require('./routes'),)
 
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
-var port = process.env['PORT']
-app.listen(port);
-// https.createServer(options, function (req, res) {
-//     // res.writeHead(200);
-//     // res.end("hello world\n");
-//   }).listen(port);
-console.log("Server is listening on port " + port);
+// var port = process.env['PORT']
+// app.listen(port);
+// // https.createServer(options, function (req, res) {
+// //     // res.writeHead(200);
+// //     // res.end("hello world\n");
+// //   }).listen(port);
+// console.log("Server is listening on port " + port);
+app.listen(5050, () => {
+    console.log('Server Berjalan di Port : ' + 5050);
+});

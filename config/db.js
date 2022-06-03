@@ -1,22 +1,17 @@
 const mysql = require('mysql2')
 
-const user = process.env['DBUSER']
-const password = process.env['DBPASSWD']
-const host = process.env['DBHOST']
-const database = process.env['DATABASE']
-
 // console.log(user)
 
 const db = mysql.createConnection({
-    host: host,
-    user: user,
-    password: password,
-    database: database,
-    multipleStatements: true
+    multipleStatements: true,
+    host: 'localhost',
+    user: 'root',
+    password: 'shofiq2001',
+    database: 'Timbangan'
 })
 
 db.connect((err) => {
-    if(err) throw err
+    if (err) throw err
     console.log('Mysql Connected...')
 })
 

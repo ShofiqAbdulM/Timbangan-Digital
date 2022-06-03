@@ -2,18 +2,20 @@
 <html lang="en">
 
 <head>
-    <%- include('../partials/head'); %>
-        <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="css/form.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
 </head>
 
 <body>
-    <section class="h-100 gradient-form" style="background-color: #eee;">
-        <div class="container py-10 h-100">
-            <%- include('../partials/login');%>
-        </div>
-        <%- include('../partials/script'); %>
-    </section>
-    
+    <img class="bg" src="/public/BG.png">
+    <div class="container">
+        <%- include('../partials/login');%>
+    </div>
+    <%- include('../partials/script'); %>
+
 </body>
 
 </html>
